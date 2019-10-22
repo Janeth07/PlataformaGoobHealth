@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { resetComponentState } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-login',
@@ -10,56 +9,54 @@ import { resetComponentState } from '@angular/core/src/render3/instructions';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-user:firebase.User;
- public loading:boolean;
+user: firebase.User;
+ public loading: boolean;
 
 
-  constructor(private service: AuthService, public afAuth: AngularFireAuth, private router: Router, private authService:AuthService) {
-   this.loading=false;
+  constructor(private service: AuthService, public afAuth: AngularFireAuth, private router: Router,
+  private authService: AuthService) {
+   this.loading = false;
    }
-public email : string = '';
-public password : string = '';
+public email: string = '';
+public password: string = '';
 
   ngOnInit() {
-    this.service.getLoggedInUser().subscribe(user=> {
+    this.service.getLoggedInUser().subscribe(user => {
       console.log(user);
       this.user = user;
     });
-  
-   } 
+   }
 
-loginG(){
+loginG() {
   console.log('Login...');
   this.service.login();
- 
 }
 
-logout(){
+logout() {
   this.service.logout();
 }
 
-emailSignUp(){
+emailSignUp() {
   console.log('Login...');
   this.service.verifyEmail();
-  
 }
-onlogininGoogle() : void {
-  this.authService.loginGoogleUser().then((res)=>{
-    console.log('resUser',res);
+onlogininGoogle(): void {
+  this.authService.loginGoogleUser().then((res) => {
+    console.log('resUser', res);
     this.router.navigate(['dashboard']);
-  }).catch(err=> console.log('err',err));
+  }).catch(err => console.log('err', err));
 }
-Onlogin():void{
+Onlogin(): void {
   console.log('email', this.email);
   console.log('password', this.password);
-   this.loading=true;
-this.authService.loginEmailUser(this.email,this.password).then((res)=>{
+   this.loading = true;
+this.authService.loginEmailUser(this.email, this.password).then((res) => {
  this.router.navigate(['dashboard']);
+// tslint:disable-next-line: comment-format
 //}).catch(err=> console.log('err',err.message));
-}).catch (err=> { 
-  this.loading=false;
+}).catch (err => {
+  this.loading = false;
   alert('Correo o contraseña invalida');
 });
-
 }
 }

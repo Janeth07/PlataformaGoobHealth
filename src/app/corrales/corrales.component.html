@@ -1,153 +1,158 @@
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-wrapper">
-               <i class="material-icons">view_module</i> 
-          <a class="navbar-brand" href="#">Corrales</a>
-        </div>
-        <button mat-raised-button class="navbar-toggler" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-        </button>
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <i class="material-icons">view_module</i>
+      <a class="navbar-brand" href="#">Corrales</a>
     </div>
-    </nav>
+    <button mat-raised-button class="navbar-toggler" type="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+  </div>
+</nav>
 
-    <div class="main-content">  
-        <div class="container-fluid">
-            <button class="btn btn-danger btn-round float-right" (click)="resetChecks(formCorral)"  data-toggle="modal" data-target="#signupModal">
-                <i class="material-icons">add_circle</i>
-                Registrar nuevo corral
-            </button>  
-            <br>
-            <br>
-            <br>    
-            
-            <div *ngIf="loading" class="text-center my-6">
-              <img src="../../assets/img/loading.gif" width="200px">
-              </div>
+<div class="main-content">
+  <div class="container-fluid">
+    <button class="btn btn-danger btn-round float-right" (click)="resetChecks(formCorral)" 
+    data-toggle="modal" data-target="#signupModal">
+      <i class="material-icons">add_circle</i>
+      Registrar nuevo corral
+    </button>
+    <br>
+    <br>
+    <br>
 
-            <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
-              <div class="modal-dialog modal-signup" role="document">
-                <div class="modal-content">
-                  <div class="card card-signup card-plain">
-                    <div class="modal-header">
-                      <h5 class="modal-title card-title">{{!this.corralesService.selectCorral.id ? 'Registrar Corral' : 'Actualizar Corral'}}</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <i class="material-icons">clear</i>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class=" mx-5 mr-5">
-                          <div class="info info-horizontal">
-                            <div class="card-icon mr-5 my-5"><br><br>
-                                <img src="../../assets/img/icons8_Cement_Kiln_32px.png" width="300%" height="200%">
-                                </div>
-                          </div>
-                        </div>            
-                        <div class="col-md-5 mr-auto">
-                          <form class="form" method="" action="" #formCorral="ngForm" (ngSubmit)="saveCorral(formCorral)" >
-                            <div class="card-body">
-                              <div type="text" name="id" [(ngModel)]="this.corralesService.selectCorral.id"></div>
-                              <div class="form-group">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Número" name="numero" [(ngModel)]="this.corralesService.selectCorral.numero">
-                                </div>
-                            </div>
-                            <div class=" form-row" >
-                              <div  class="form-group  mr-1 my-3" ><p> ¿Que Aloja? </p></div>
-                              <div  class="form-group" >
-                            <div class="form-check" >
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="1" 
-                                  name="aloja"  [checked]="checks.destete" (change)="checks.destete = !checks.destete">
-                                  <span class="form-check-sign">
-                                      <span class="check"></span>
-                                  </span>
-                                  Destete
-                              </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value="2" 
-                                    name="aloja" [checked]="checks.vientre" (change)="checks.vientre = !checks.vientre">
-                                    <span class="form-check-sign">
-                                        <span class="check"></span>
-                                    </span>
-                                    Vientres
-                                </label> 
-                              </div>
-                              <div class="form-check">
-                                  <label class="form-check-label">
-                                      <input class="form-check-input" type="checkbox" value="3" 
-                                      name="aloja" [checked]="checks.semental" (change)="checks.semental = !checks.semental">
-                                      <span class="form-check-sign">
-                                          <span class="check"></span>
-                                      </span>
-                                      Sementales
-                                  </label>
-                              </div>
-                              <div class="form-check">
-                                  <label class="form-check-label">
-                                      <input class="form-check-input" type="checkbox" value="4" 
-                                      name="aloja" [checked]="checks.coordero" (change)="checks.coordero = !checks.coordero">
-                                      <span class="form-check-sign">
-                                          <span class="check"></span>
-                                      </span>
-                                      Corderos
-                                  </label>
-                              </div>
-                              </div>
-                              </div>
-                              <p>Descripción:</p>
-                              <div>
-                                <textarea name="comentarios" rows="5" cols="32" name="descripcion" [(ngModel)]="this.corralesService.selectCorral.descripcion"></textarea>
+    <div *ngIf="loading" class="text-center my-6">
+      <img src="../../assets/img/loading.gif" width="200px">
+    </div>
 
-                              </div>
-                            </div>
-                            <button type="submit" class="btn btn-danger btn-round float-right" data-toggle="modal" 
-                            data-target="#exampleModal"  >
-                                    <i class="material-icons">save</i> Guardar
-                                   </button>
-                          </form>
-                        </div>
-                      </div>
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-signup" role="document">
+        <div class="modal-content">
+          <div class="card card-signup card-plain">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">
+                {{!this.corralesService.selectCorral.id ? 'Registrar Corral' : 'Actualizar Corral'}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="material-icons">clear</i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class=" mx-5 mr-5">
+                  <div class="info info-horizontal">
+                    <div class="card-icon mr-5 my-5"><br><br>
+                      <img src="../../assets/img/icons8_Cement_Kiln_32px.png" width="300%" height="200%">
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <!--<a class="nav-link text-right font-weight-bold btn-link" ><u>Nuevo corral</u></a>-->
-            <div class="row">
-                <div  class="card mb-3 sm-6 mr-3" style="max-width: 340px;" *ngFor="let corral of corrales"> 
-                    <div class="row no-gutters">
-                      <div class="col-md-4 my-3">
-                        <img src="../../assets/img/icons8_Cement_Kiln_32px.png" class="card-img" alt="...">
-                      </div>
-                      
-                      <div class="col-md-8">
-                        <div class="card-body" >
-                            <button type="button" class="ml-auto close" (click)="onDeleteCorral(corral.id)">
-                                <i class="material-icons ">delete</i>
-                                </button>
-                                <button type="button" class="ml-auto close" data-toggle="modal" data-target="#signupModal" 
-                                (click)="onPreUpdateCorral(corral)">
-                                  <i class="material-icons ">edit</i>
-                                  </button>
-                               <br>
-                               <h3 class="text-right font-weight-bold"># {{corral.numero}}</h3>
-                               <p class="card-text">
-                                  <span *ngIf="corral.aloja.destete"> Destete</span>
-                                  <span *ngIf="corral.aloja.vientre"> Vientre</span>
-                                  <span *ngIf="corral.aloja.semental"> Semental</span>
-                                  <span *ngIf="corral.aloja.coordero"> Coordero</span>
-                            <br> {{corral.descripcion}}</p>
+                <div class="col-md-5 mr-auto">
+                  <form class="form" method="" action="" #formCorral="ngForm" 
+                  (ngSubmit)="saveCorral(formCorral)">
+                    <div class="card-body">
+                      <div type="text" name="id" [(ngModel)]="this.corralesService.selectCorral.id"></div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Número" name="numero"
+                            [(ngModel)]="this.corralesService.selectCorral.numero">
                         </div>
                       </div>
+                      <div class=" form-row">
+                        <div class="form-group  mr-1 my-3">
+                          <p> ¿Que Aloja? </p>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="1" name="aloja"
+                                [checked]="checks.destete" (change)="checks.destete = !checks.destete">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                              Destete
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="2" name="aloja"
+                                [checked]="checks.vientre" (change)="checks.vientre = !checks.vientre">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                              Vientres
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="3" name="aloja"
+                                [checked]="checks.semental" (change)="checks.semental = !checks.semental">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                              Sementales
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <label class="form-check-label">
+                              <input class="form-check-input" type="checkbox" value="4" name="aloja"
+                                [checked]="checks.coordero" (change)="checks.coordero = !checks.coordero">
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                              Corderos
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <p>Descripción:</p>
+                      <div>
+                        <textarea name="comentarios" rows="5" cols="32" name="descripcion"
+                          [(ngModel)]="this.corralesService.selectCorral.descripcion"></textarea>
+                      </div>
                     </div>
-                  </div>
+                    <button type="submit" class="btn btn-danger btn-round float-right" data-toggle="modal"
+                      data-target="#exampleModal">
+                      <i class="material-icons">save</i> Guardar
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <!--<a class="nav-link text-right font-weight-bold btn-link" ><u>Nuevo corral</u></a>-->
+    <div class="row">
+      <div class="card mb-3 sm-6 mr-3" style="max-width: 340px;" *ngFor="let corral of corrales">
+        <div class="row no-gutters">
+          <div class="col-md-4 my-3">
+            <img src="../../assets/img/icons8_Cement_Kiln_32px.png" class="card-img" alt="...">
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <button type="button" class="ml-auto close" (click)="onDeleteCorral(corral.id)">
+                <i class="material-icons ">delete</i>
+              </button>
+              <button type="button" class="ml-auto close" data-toggle="modal" data-target="#signupModal"
+                (click)="onPreUpdateCorral(corral)">
+                <i class="material-icons ">edit</i>
+              </button>
+              <br>
+              <h3 class="text-right font-weight-bold"># {{corral.numero}}</h3>
+              <p class="card-text">
+                <span *ngIf="corral.aloja.destete"> Destete</span>
+                <span *ngIf="corral.aloja.vientre"> Vientre</span>
+                <span *ngIf="corral.aloja.semental"> Semental</span>
+                <span *ngIf="corral.aloja.coordero"> Coordero</span>
+                <br> {{corral.descripcion}}</p>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
-    
+    </div>
+  </div>
+</div>

@@ -1,223 +1,224 @@
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-wrapper">
-               <i class="material-icons">description</i> 
-          <a class="navbar-brand" href="#">Dietas</a>
-        </div>
-    </div>
-    </nav>
-<div class="main-content">  
   <div class="container-fluid">
-      <button class="btn btn-danger btn-round float-right" data-toggle="modal" data-target="#Modal">
-          <i class="material-icons">add_circle</i> Registra nueva dieta
-      </button>
-      <button class="btn btn-danger btn-round float-right" data-toggle="modal" data-target="#exampleModal">
-          <i class="material-icons">add_circle</i> Asignar Dieta
-      </button>
-        <br><br><br>
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-           
-            <p class="modal-title" id="exampleModalLabel">Asignar diestas a corrales</p>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-       </button>
-       </div>
-  <div class="modal-body">
-     <div class="row " >
-          <p class="mx-3"> Asigna la Dieta que deseas asignar a tus corrales pueden ser a mas de uno </p>
-        <div class="mx-5 mr-5">
-         <div class="info info-horizontal">
-            <div class="card-icon mr-5 my-4"><br><br>
-               <img src="../../assets/img/icons8_Wheat_64px_1.png" width="200%" height="200%">
-            </div>
-          </div>
-        </div>
-  <div class="col-md-6 mr-auto">
-     <form class="form" method="" action="" #asignarDieta="ngForm" (ngSubmit)="asignarDietas(asignarDieta)">
-        <div class="card-body">
-          <div class="row">
-            <div class="mt-2">
-               <p>Dieta a asignar:</p>
-               
-            </div>
-          <div class="col">
-            <select class="custom-select mr-md-5 mb-1" (change)="setDetalle($event)" name="id" id="id_dieta"  [(ngModel)]="this.dietasService.selectDieta.id" >
-                <option *ngFor="let dieta of dietas" value="{{dieta.descripcion}}" >{{dieta.nombre}}</option>               
-            </select>
-          </div>
-          </div>
-    <div class="row">
-      <div class="col">
-       <p class="b">Detalles:</p>       
-       <p>{{detalle}}</p>
-      </div>
+    <div class="navbar-wrapper">
+      <i class="material-icons">description</i>
+      <a class="navbar-brand" href="#">Dietas</a>
     </div>
-    <div>                        
-       <p> Corrales:</p>
-    <div  class="form-check tex-center"  *ngFor="let corral of corrales; let i = index" >
-        <label class="form-check-label"  >
-          <input  class="form-check-input" [checked]="" (change)="addCheck(corral.id)" type="checkbox" value="{{corral.id}}" id="{{corral.id}}" name="corrales">
-            <span class="form-check-sign">
-              <span class="check" ></span>
-            </span>Corral #{{corral.numero}}            
-        </label>
-   </div>
   </div>
-         </div>
-    <button type="submit" class="btn btn-danger btn-round float-right " data-toggle="modal" data-target="#exampleModal">
-      <i class="material-icons">save</i> Asignar
+</nav>
+<div class="main-content">
+  <div class="container-fluid">
+    <button class="btn btn-danger btn-round float-right" data-toggle="modal" data-target="#Modal">
+      <i class="material-icons">add_circle</i> Registra nueva dieta
     </button>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
- </div>
+    <button class="btn btn-danger btn-round float-right" data-toggle="modal" data-target="#exampleModal">
+      <i class="material-icons">add_circle</i> Asignar Dieta
+    </button>
+    <br><br><br>
 
- <div *ngIf="loading" class="text-center my-6">
-  <img src="../../assets/img/loading.gif" width="200px">
-  </div>
-
- <!-- Modal Registrar -->
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <p class="modal-title" id="exampleModalLabel">Asignar dietas a corrales</p>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title" id="exampleModalLabel">Asignar diestas a corrales</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
+          </div>
+          <div class="modal-body">
+            <div class="row ">
+              <p class="mx-3"> Asigna la Dieta que deseas asignar a tus corrales pueden ser a mas de uno </p>
+              <div class="mx-5 mr-5">
+                <div class="info info-horizontal">
+                  <div class="card-icon mr-5 my-4"><br><br>
+                    <img src="../../assets/img/icons8_Wheat_64px_1.png" width="200%" height="200%">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mr-auto">
+                <form class="form" method="" action="" #asignarDieta="ngForm" 
+                (ngSubmit)="asignarDietas(asignarDieta)">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="mt-2">
+                        <p>Dieta a asignar:</p>
+                      </div>
+                      <div class="col">
+                        <select class="custom-select mr-md-5 mb-1" (change)="setDetalle($event)" 
+                        name="id" id="id_dieta" [(ngModel)]="this.dietasService.selectDieta.id">
+                          <option *ngFor="let dieta of dietas" value="{{dieta.descripcion}}">
+                            {{dieta.nombre}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <p class="b">Detalles:</p>
+                        <p>{{detalle}}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p> Corrales:</p>
+                      <div class="form-check tex-center" *ngFor="let corral of corrales; let i = index">
+                        <label class="form-check-label">
+                          <input class="form-check-input" [checked]="" (change)="addCheck(corral.id)" 
+                          type="checkbox" value="{{corral.id}}" id="{{corral.id}}" name="corrales">
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>Corral #{{corral.numero}}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-danger btn-round float-right " data-toggle="modal"
+                    data-target="#exampleModal">
+                    <i class="material-icons">save</i> Asignar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-<div class="modal-body">
-  <div class="row">
-    <div class="text-justify">
-     <p class="mx-3">Al registar la dieta dedes colocar el ingrediente y la cantidad necesaria por animal</p>
-    </div>
-  <div class="mx-5 mr-1">
-   <div class="info info-horizontal">
-     <div class="card-icon mr-3 my-5"><br><br>
-       <img src="../../assets/img/icons8_Wheat_64px_1.png" width="200%" height="250%">
       </div>
     </div>
-  </div>
-<div class="col-md-6 mr-auto">
-  <form class="form" method="" action=""  #formDieta="ngForm" (ngSubmit)="saveDietas(formDieta)">
-    <div class="card-body">
-      <div class="form-group">
-        <div type="text" name="id" [(ngModel)]="this.dietasService.selectDieta.id"></div>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Nombre" name="nombre" [(ngModel)]="this.dietasService.selectDieta.nombre">
-       </div>
-      </div>
+    <div *ngIf="loading" class="text-center my-6">
+      <img src="../../assets/img/loading.gif" width="200px">
+    </div>
 
-<div class="form-group">
-  <div class="input-group">
-    <input type="text" [(ngModel)]="ingrediente" name="ingrediente" class="form-control" placeholder="Ingredientes">
-  </div>
-</div>
-<div class=" form-row" >
-  <div class=" form-group col-md-6 my-1 mr-2">
-   <input type="text" [(ngModel)]="cantidad" name="cantidad" class="form-control" placeholder="Cantidad">    
-   </div>
-  <div class="form-group">
-     <select class="custom-select width=10% height=10%" [(ngModel)]="presentacion" name="presentacion" id="inlineFormCustomSelect">
-        <option value="kg">Kg</option>
-        <option value="gr">gr</option>
-        <option value="*">*</option>
-     </select>
-  </div>
- <div class="form-row ml-1 ">
-   <button type="button" (click)="addIngerdiente()" class=" btn btn-danger  close">
-      <i class="material-icons  ">add_box</i>
-     </button>
-                                                                        
- </div>
-</div>
-<div class="row">
-    <div class="col-lg-15 col-md-15">
-        <div class="card-body table-responsive">
-            <table class="table table-hover">
-                <thead class="text-danger">
-                    <th>Ingrediente</th>
-                    <th>Cantidad</th>
-                </thead>
-                <tbody *ngFor="let ingrediente of ingredientes">
-                    <tr>
-                        <td>{{ingrediente.ingrediente}}</td>
-                        <td>{{ingrediente.cantidad+  ingrediente.presentacion}}</td>
-                    </tr>
-                 </tbody>
-
-               </table>
+    <!-- Modal Registrar -->
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title" id="exampleModalLabel">Asignar dietas a corrales</p>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="text-justify">
+                <p class="mx-3">
+                Al registar la dieta dedes colocar el ingrediente y la cantidad necesaria por animal</p>
+              </div>
+              <div class="mx-5 mr-1">
+                <div class="info info-horizontal">
+                  <div class="card-icon mr-3 my-5"><br><br>
+                    <img src="../../assets/img/icons8_Wheat_64px_1.png" width="200%" height="250%">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mr-auto">
+              <form class="form" method="" action="" #formDieta="ngForm" (ngSubmit)="saveDietas(formDieta)">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div type="text" name="id" [(ngModel)]="this.dietasService.selectDieta.id"></div>
+                      <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Nombre" name="nombre"
+                          [(ngModel)]="this.dietasService.selectDieta.nombre">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input type="text" [(ngModel)]="ingrediente" name="ingrediente" class="form-control"
+                          placeholder="Ingredientes">
+                      </div>
+                    </div>
+                    <div class=" form-row">
+                      <div class=" form-group col-md-6 my-1 mr-2">
+                        <input type="text" [(ngModel)]="cantidad" name="cantidad" class="form-control"
+                          placeholder="Cantidad">
+                      </div>
+                      <div class="form-group">
+                        <select class="custom-select width=10% height=10%" [(ngModel)]="presentacion"
+                          name="presentacion" id="inlineFormCustomSelect">
+                          <option value="kg">Kg</option>
+                          <option value="gr">gr</option>
+                          <option value="*">*</option>
+                        </select>
+                      </div>
+                      <div class="form-row ml-1 ">
+                        <button type="button" (click)="addIngerdiente()" class=" btn btn-danger  close">
+                          <i class="material-icons  ">add_box</i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-15 col-md-15">
+                        <div class="card-body table-responsive">
+                          <table class="table table-hover">
+                            <thead class="text-danger">
+                              <th>Ingrediente</th>
+                              <th>Cantidad</th>
+                            </thead>
+                            <tbody *ngFor="let ingrediente of ingredientes">
+                              <tr>
+                                <td>{{ingrediente.ingrediente}}</td>
+                                <td>{{ingrediente.cantidad+  ingrediente.presentacion}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class=" mt-3">
+                        <p>Cantidad de veces al dia:</p>
+                      </div>
+                      <div class="">
+                        <select class="custom-select width=1% height=1% " id="inlineFormCustomSelect"
+                          name="raciones_por_dia" 
+                          [(ngModel)]="this.dietasService.selectDieta.raciones_por_dia">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                      </div>
+                    </div>
+                    <p>Observaciones:</p>
+                    <textarea name="comentarios" rows="4" cols="30" name="descripcion"
+                      [(ngModel)]="this.dietasService.selectDieta.descripcion"></textarea>
+                  </div>
+                  <button class="btn btn-danger btn-round float-right " data-toggle="modal" 
+                  data-target="Modal"
+                    type="submit">
+                    <i class="material-icons">save</i> Guardar
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
-      </div>
-      <div class="row">
-          <div class=" mt-3">
-              <p>Cantidad de veces al dia:</p>
-           </div>
-         <div class="">
-           <select class="custom-select width=1% height=1% " id="inlineFormCustomSelect" name="raciones_por_dia" [(ngModel)]="this.dietasService.selectDieta.raciones_por_dia">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-           </select>
-         </div>
-        </div>  
-        <p>Observaciones:</p>
-          <textarea name="comentarios" rows="4" cols="30"  name="descripcion" [(ngModel)]="this.dietasService.selectDieta.descripcion"></textarea>
- 
-</div>
-<button class="btn btn-danger btn-round float-right " data-toggle="modal" data-target="Modal" type="submit">
-  <i class="material-icons">save</i> Guardar
-</button>
-</form>
- </div>
-</div>
- </div>
- </div>
-</div>
- </div>
-<!--<a class="nav-link text-right font-weight-bold btn-link" ><u>Nuevo Ganadero</u></a>-->
- <div class="row">
-  <div class="card mb-3 sm-6 mr-3" style="max-width: 340px;" *ngFor="let dieta of dietas">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="../../assets/img/icons8_Wheat_64px_1.png" class="card-img" alt="...">
-     </div>
-  <div class="col-md-8">
-    <div class="card-body">
-      <button type="button" class="ml-auto close" (click)="onDeleteDieta(dieta.id)">
-        <i class="material-icons ">delete</i>
-      </button>
-      <button type="button" class="ml-auto close" data-toggle="modal" data-target="#Modal" 
-      (click)="onPreUpdateDieta(dieta)">
-        <i class="material-icons ">edit</i>
-       </button><br>
-          <h5 class="card-title">{{dieta.nombre}}</h5>
-               <p class="card-text">{{dieta.descripcion}}
-                <!-- <br>
-                 <span *ngIf="dieta.corrales.corral1">Corral 1</span>
-                 <span *ngIf="dieta.corrales.corral2">Corral 2</span>
-                 <span *ngIf="dieta.corrales.corral3">Corral 3</span>
-                 <span *ngIf="dieta.corrales.corral4">Corral 4</span>
-                 <span *ngIf="dieta.corrales.corral5">Corral 5</span>
-                 <span *ngIf="dieta.corrales.corral6">Corral 6</span>
-                 <span *ngIf="dieta.corrales.corral7">Corral 7</span>-->
-               </p>
-
     </div>
- </div>
-</div>
-</div>
-</div>
-</div>
+
+    <!--<a class="nav-link text-right font-weight-bold btn-link" ><u>Nuevo Ganadero</u></a>-->
+    <div class="row">
+      <div class="card mb-3 sm-6 mr-3" style="max-width: 340px;" *ngFor="let dieta of dietas">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="../../assets/img/icons8_Wheat_64px_1.png" class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <button type="button" class="ml-auto close" (click)="onDeleteDieta(dieta.id)">
+                <i class="material-icons ">delete</i>
+              </button>
+              <button type="button" class="ml-auto close" data-toggle="modal" data-target="#Modal"
+                (click)="onPreUpdateDieta(dieta)">
+                <i class="material-icons ">edit</i>
+              </button><br>
+              <h5 class="card-title">{{dieta.nombre}}</h5>
+              <p class="card-text">{{dieta.descripcion}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

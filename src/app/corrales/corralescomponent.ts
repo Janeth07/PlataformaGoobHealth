@@ -10,12 +10,13 @@ import { CategoriaAnimal } from '../interfaces/corrales.interface';
   styleUrls: ['./corrales.component.css']
 })
 export class CorralesComponent implements OnInit {
-public loading:boolean;
+public loading: boolean;
 
-  checks:CategoriaAnimal={destete:false,vientre:false,semental:false,coordero:false};
+  checks: CategoriaAnimal = {destete: false, vientre: false, semental: false, coordero: false};
   constructor(public corralesService: CorralesService) {
-    this.loading=true;
+    this.loading = true;
    }
+
 @ViewChild ('btnClose') btnClose : ElementRef;
 public corrales=[];
 public corral='';
@@ -23,41 +24,36 @@ public corral='';
   ngOnInit() {
     this.corralesService.getCorrales().subscribe(corrales => {
      console.log('CORRALES', corrales);
-     this.corrales=corrales;
-     this.loading=false;
+     this.corrales = corrales;
+     this.loading = false;
     })
   }
-  resetChecks(corralForm:NgForm){
-
-    this.checks = {destete:false,vientre:false,semental:false,coordero:false};
+  resetChecks(corralForm: NgForm) {
+    this.checks = {destete: false, vientre: false, semental: false, coordero: false};
     corralForm.reset();
   }
-  saveCorral(corralForm:NgForm): void{
-    if(corralForm.value.id==null){
-      this.corralesService.addCorral(corralForm.value,this.checks);
-      this.checks = {destete:false,vientre:false,semental:false,coordero:false};
-      
-    }
-    else{
-      this.corralesService.updateCorrales(corralForm.value,this.checks);      
-      this.checks = {destete:false,vientre:false,semental:false,coordero:false};
+  saveCorral(corralForm: NgForm): void {
+    if (corralForm.value.id == null) {
+      this.corralesService.addCorral(corralForm.value, this.checks);
+      this.checks = {destete: false, vientre: false, semental: false, coordero: false};
+    } else {
+      this.corralesService.updateCorrales(corralForm.value, this.checks);
+      this.checks = {destete: false, vientre: false, semental: false, coordero: false};
     }
     corralForm.reset();
     alert('Corral registrado con exito');
   }
 
-  onDeleteCorral(id:string){
+  onDeleteCorral(id: string) {
     console.log('DELETE CORRAL', id);
-    const confirmacion= confirm ('¿Deseas eliminar el registro?');
-    if(confirmacion){
+    const confirmacion = confirm ('¿Deseas eliminar el registro?');
+    if (confirmacion) {
       this.corralesService.deleteCorral(id);
     }
   }
 
-  onPreUpdateCorral(corral:Corrales){
+  onPreUpdateCorral(corral: Corrales) {
     this.checks = corral.aloja;
-    this.corralesService.selectCorral=Object.assign({},corral);
+    this.corralesService.selectCorral = Object.assign({}, corral);
   }
-  
- 
 }
