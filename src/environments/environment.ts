@@ -6,12 +6,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyALV_vKza-feMoWd9CnvFOJwZXVVWM9-Qs',
-    authDomain: 'tiaag-1f524.firebaseapp.com',
-    databaseURL: 'https://tiaag-1f524.firebaseio.com',
-    projectId: 'tiaag-1f524',
-    storageBucket: '',
-    messagingSenderId: '1092177036113'
+    apiKey: "AIzaSyDq5axgoVEfHWp9uE3nWzQR0FnGMgSOTm4",
+  authDomain: "internet-82a53.firebaseapp.com",
+  databaseURL: "https://internet-82a53.firebaseio.com",
+  projectId: "internet-82a53",
+  storageBucket: "internet-82a53.appspot.com",
+  messagingSenderId: "241618829728",
+  appId: "1:241618829728:web:5e57f5691db6151a4524c5",
+  measurementId: "G-L029JY8143"
   }
 
 };

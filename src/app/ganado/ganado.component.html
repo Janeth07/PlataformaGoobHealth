@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
   <div class="container-fluid">
     <div class="navbar-wrapper">
-      <i class="material-icons">ballot</i>
-      <a class="navbar-brand" href="#">Ganado</a>
+      <i class="material-icons">person</i>
+      <a class="navbar-brand" href="#">Clientes</a>
     </div>
     <button mat-raised-button class="navbar-toggler" type="button">
       <span class="sr-only">Toggle navigation</span>
@@ -17,12 +17,9 @@
   <div class="container-fluid">
     <button class="btn btn-danger btn-round float-right ml-2" data-toggle="modal" 
     data-target="#exampleModal">
-    <i class="material-icons">add_circle</i> Registrar compra
+    <i class="material-icons">add_circle</i> Registrar clientes
     </button>
 
-    <button class="btn btn-danger btn-round float-right" data-toggle="modal" data-target="#exampleModal2">
-      <i class="material-icons">add_circle</i> Registrar Nacimiento
-    </button>
     <br>
     <br>
     <br>
@@ -37,35 +34,38 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ingresar Animales Comprados</h5>
+            <h5 class="modal-title" id="exampleModalLabel"> 
+              {{!this.clientesService.selectCliente.id ? 'Registrar Clientes' : 'Editar datos'}}
+
+            </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form #formBorrega2="ngForm" (ngSubmit)="saveBorrega(formBorrega2)">
+            <form #formCliente1="ngForm" (ngSubmit)="saveCliente(formCliente1)">
               <div class="row">
-                <div type="text" name="id" [(ngModel)]="this.borregasService.selectBorrega.id"></div>
+                <div type="text" name="id" [(ngModel)]="this.clientesService.selectCliente.id"></div>
                 <div class="col-md-4 my-5">
                   <img src="./assets/img/icons8_Sheep_96px.png" style="max-width: 150px;">
                 </div>
                 <div class="col">
                   <input type="text" class="form-control" placeholder="RFID" name="rfid"
-                    [(ngModel)]="this.borregasService.selectBorrega.rfid">
+                    [(ngModel)]="this.clientesService.selectCliente.nombre">
                   <input type="number" class="form-control" placeholder="Arete" name="arete"
-                    [(ngModel)]="this.borregasService.selectBorrega.arete">
+                    [(ngModel)]="this.clientesService.selectCliente.apellido">
                   <input type="number" class="form-control" placeholder="Peso Actual" name="peso_actual"
-                    [(ngModel)]="this.borregasService.selectBorrega.peso_actual">
+                    [(ngModel)]="this.clientesService.selectCliente.numero">
                   <input type="number" class="form-control" placeholder="Peso al nacer" name="peso_nacer"
-                    [(ngModel)]="this.borregasService.selectBorrega.peso_nacer">
+                    [(ngModel)]="this.clientesService.selectCliente.comunidad">
                   <div>
                     <label>Fecha de Nacimiento</label>
                     <input type="date" class="form-control" placeholder="Fecha de nacimiento" 
-                    name="fecha_nac" [(ngModel)]="this.borregasService.selectBorrega.fecha_nac"></div>
+                    name="fecha_nac" [(ngModel)]="this.clientesService.selectCliente.fecha_pago"></div>
                   <div>
                     <label>Fecha de Alta</label>
                     <input type="date" class="form-control" placeholder="Fecha de Alta" name="fecha_entrada"
-                      [(ngModel)]="this.borregasService.selectBorrega.fecha_entrada"> </div>
+                      [(ngModel)]="this.clientesService.selectCliente.telefono"> </div>
                   <div class="row">
                     <div class="col-md-3 my-3">
                       <p>Raza:</p>
@@ -75,25 +75,25 @@
                     </div>
                     <div class="col">
                       <select class="custom-select mr-sm-2 mb-1" id="inlineFormCustomSelect" name="raza"
-                        [(ngModel)]="this.borregasService.selectBorrega.raza">
+                        [(ngModel)]="this.clientesService.selectCliente.ruta">
                         <option value="Dorper">Dorper</option>
                         <option value="*">*</option>
                         <option value="*">*</option>
                       </select>
                       <select class="custom-select mr-sm-2 mb-1" id="" name="estado"
-                        [(ngModel)]="this.borregasService.selectBorrega.estado">
+                        [(ngModel)]="this.clientesService.selectCliente.comunidad">
                         <option value="Destete">Destete</option>
                         <option value="Engorda">Engorda</option>
                         <option value="?">?</option>
                       </select>
                       <select class="custom-select mr-sm-2 mb-1" id="" name="corral"
-                        [(ngModel)]="this.borregasService.selectBorrega.corral">
+                        [(ngModel)]="this.clientesService.selectCliente.comunidad">
                         <option *ngFor="let corral of corrales">#{{corral.numero}}</option>
                       </select>
                       <div class="form-check form-check-radio form-check-inline">
                         <label class="form-check-label">
                           <input class="form-check-input" type="radio" id="inlineRadio1" value="Hembra" 
-                          name="genero" [(ngModel)]="this.borregasService.selectBorrega.genero" checked>
+                          name="genero" [(ngModel)]="this.clientesService.selectCliente.ruta" checked>
                            Hembra
                           <span class="circle">
                             <span class="check"></span>
@@ -103,7 +103,7 @@
                       <div class="form-check form-check-radio form-check-inline">
                         <label class="form-check-label">
                           <input class="form-check-input" type="radio" id="inlineRadio2" value="Macho" 
-                          name="genero" [(ngModel)]="this.borregasService.selectBorrega.genero"> Macho
+                          name="genero" [(ngModel)]="this.clientesService.selectCliente.ruta"> Macho
                           <span class="circle">
                             <span class="check"></span>
                           </span>
@@ -125,124 +125,26 @@
       </div>
     </div>
 
-    <!--Modal2-->
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" 
-    aria-labelledby="exampleModalLabel2" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-          {{!this.borregasService.selectBorrega.id ? 'Registrar Nacimiento de Animal' : 'Actualizar datos'}}
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form #formBorrega="ngForm" (ngSubmit)="saveBorrega(formBorrega)">
-              <div class="row">
-                <div type="text" name="id" [(ngModel)]="this.borregasService.selectBorrega.id"></div>
-                <div class="col-md-4 my-5">
-                  <img src="./assets/img/icons8_Sheep_96px.png" style="max-width: 150px;">
-                </div>
-                <div class="col">
-                  <input type="text" class="form-control" placeholder="RFID" name="rfid"
-                    [(ngModel)]="this.borregasService.selectBorrega.rfid">
-                  <input type="number" class="form-control" placeholder="Arete" name="arete"
-                    [(ngModel)]="this.borregasService.selectBorrega.arete">
-                  <input type="number" class="form-control" placeholder="Peso Actual" name="peso_actual"
-                    [(ngModel)]="this.borregasService.selectBorrega.peso_actual">
-                  <input type="number" class="form-control" placeholder="Peso al nacer" name="peso_nacer"
-                    [(ngModel)]="this.borregasService.selectBorrega.peso_nacer">
-                  <div>
-                    <label>Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" placeholder="Fecha de nacimiento" 
-                    name="fecha_nac" [(ngModel)]="this.borregasService.selectBorrega.fecha_nac">
-                  </div>
-                  <input type="text" class="form-control" placeholder="Madre" name="madre"
-                    [(ngModel)]="this.borregasService.selectBorrega.madre">
-                  <input type="text" class="form-control" placeholder="Padre" name="padre"
-                    [(ngModel)]="this.borregasService.selectBorrega.padre">
-                  <div class="row">
-                    <div class="col-md-3 my-3">
-                      <p>Raza:</p>
-                      <p>Estado:</p>
-                      <p>Corral:</p>
-                      <p>Genero:</p>
-                    </div>
-                    <div class="col">
-                      <select class="custom-select" id="inlineFormCustomSelect" name="raza"
-                        [(ngModel)]="this.borregasService.selectBorrega.raza">
-                        <option value="Dorper">Dorper</option>
-                        <option value="*">*</option>
-                        <option value="*">*</option>
-                      </select>
-                      <select class="custom-select mr-sm-2 mb-1" id="" name="estado"
-                        [(ngModel)]="this.borregasService.selectBorrega.estado">
-                        <option value="Destete">Destete</option>
-                        <option value="Engorda">Engorda</option>
-                        <option value="*">?</option>
-                      </select>
-                      <select class="custom-select mr-sm-2 mb-1" id="" name="corral"
-                        [(ngModel)]="this.borregasService.selectBorrega.corral">
-                        <option *ngFor="let corral of corrales">#{{corral.numero}}</option>
-                      </select>
-                      <div class="form-check form-check-radio form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" 
-                          id="inlineRadio1" value="Hembra" name="genero" 
-                          [(ngModel)]="this.borregasService.selectBorrega.genero" checked> Hembra
-                          <span class="circle">
-                            <span class="check"></span>
-                          </span>
-                        </label>
-                      </div>
-                      <div class="form-check form-check-radio form-check-inline">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" 
-                          id="inlineRadio2" value="Macho" name="genero" 
-                          [(ngModel)]="this.borregasService.selectBorrega.genero"> Macho
-                          <span class="circle">
-                            <span class="check"></span>
-                          </span>
-                        </label>
-                      </div>
-                      <div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" type="submit" class="btn btn-danger btn-round">
-                  <i class="material-icons">
-                    arrow_forward_ios</i> Siguiente
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  
     <div class="row">
-      <div class="card mb-3 sm-6 mr-3" style="max-width: 340px;" *ngFor="let borrega of borregas">
+      <div class="card mb-3 sm-6 mr-3" style="max-width: 340px;" *ngFor="let cliente of clientes">
         <div class="row no-gutters">
           <div class="col-md-4 my-3">
-            <img src="./assets/img/icons8_Sheep_96px.png" class="card-img" alt="...">
+            <img src="./assets/img/clientes1.png" class="card-img" style="max-width: 100px;">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <button type="button" class="ml-auto close" (click)="onDeleteBorrega(borrega.id)">
+              <button type="button" class="ml-auto close" (click)="onDeleteCliente(cliente.id)">
                 <i class="material-icons">delete</i>
               </button>
               <button type="button" class="ml-auto close" data-toggle="modal" data-target="#exampleModal2"
-                (click)="onPreUpdateBorrega(borrega)">
+                (click)="onPreUpdateCliente(cliente)">
                 <i class="material-icons">edit</i>
               </button>
               <br>
-              <h5 class="card-title">Arete: {{borrega.arete}}</h5>
-              <h5 class="card-text">{{borrega.genero}}</h5>
-              <h5 class="card-text">{{borrega.peso_actual}} Kg</h5>
+              <h5 class="card-title">{{cliente.nombre}}</h5>
+              <h5 class="card-text">{{cliente.apellido}}</h5>
+              
             </div>
           </div>
         </div>

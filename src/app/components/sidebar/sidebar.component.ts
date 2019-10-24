@@ -18,14 +18,14 @@ export const ROUTES: RouteInfo[] = [
 ];
 export const ROUTES_GAN: RouteInfo[] = [
 
-    { path: '/dashboard_ganadero', title: 'Panel',  icon: 'pie_chart', class: '' },
-    { path: '/ganado', title: 'Ganado',  icon: 'ballot', class: '' },    
-    { path: '/dietas', title: 'Dietas',  icon:'description', class: '' },
-    { path: '/corrales', title: 'Corrales',  icon:'view_module', class: '' },
-    { path: '/registrar', title: 'Registrar',  icon:'list_alt', class: '' },    
-    { path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
-    { path: '/market', title: 'Market',  icon:'shopping_cart', class: '' },
-    { path: '/administracion', title: 'Administracion',  icon:'event', class: '' }
+    { path: '/dashboard_ganadero', title: 'Cobradores',  icon: 'person', class: '' },
+    { path: '/ganado', title: 'Clientes',  icon: 'person', class: '' },    
+    //{ path: '/dietas', title: 'Reportes',  icon:'description', class: '' },
+   // { path: '/corrales', title: 'Corrales',  icon:'view_module', class: '' },
+    { path: '/registrar', title: 'Reportes',  icon:'description', class: '' },    
+    //{ path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
+    //{ path: '/market', title: 'Market',  icon:'shopping_cart', class: '' },
+    //{ path: '/administracion', title: 'Administracion',  icon:'event', class: '' }
 ];
 
 @Component({

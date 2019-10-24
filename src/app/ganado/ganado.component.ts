@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import {BorregasService} from '../services/borregas.service';
-import {Borregas} from '../interfaces/borregas.interface';
+import {ClientesService} from '../services/clientes.service';
+import {Clientes} from '../interfaces/clientes.interface';
 import {NgForm} from '@angular/forms';
 import {CorralesService} from '../services/corrales.service';
 
@@ -12,17 +12,17 @@ import {CorralesService} from '../services/corrales.service';
 export class GanadoComponent implements OnInit {
   public loading: boolean;
 
-  constructor(public borregasService: BorregasService, public corralesService: CorralesService) {
+  constructor(public clientesService: ClientesService, public corralesService: CorralesService) {
     this.loading = true;
   }
-  public borregas = [] ;
-  public borrega = '';
+  public clientes = [] ;
+  public cliente = '';
   public corrales = [];
 
   ngOnInit() {
-    this.borregasService.getBorregas().subscribe(borregas => {
-      console.log('BORREGAS', borregas);
-      this.borregas = borregas;
+    this.clientesService.getClientes().subscribe(clientes => {
+      console.log('CLIENTES', clientes);
+      this.clientes = clientes;
       this.loading = false;
      })
      this.corralesService.getCorrales().subscribe(corrales => {
@@ -31,25 +31,25 @@ export class GanadoComponent implements OnInit {
      })
   }
 
-  saveBorrega(borregaForm: NgForm): void {
-    if (borregaForm.value.id == null) {
-      this.borregasService.addBorrega(borregaForm.value);
+  saveCliente(clienteForm: NgForm): void {
+    if (clienteForm.value.id == null) {
+      this.clientesService.addCliente(clienteForm.value);
     } else {
-      this.borregasService.updateBorregas(borregaForm.value);
+      this.clientesService.updateClientes(clienteForm.value);
     }
-    borregaForm.resetForm();
-    alert('Borrega registrada con exito');
+    clienteForm.resetForm();
+    alert('Cliente registrado con exito');
   }
 
-  onDeleteBorrega(id: string) {
-    console.log('DELETE BORREGA', id);
+  onDeleteCliente(id: string) {
+    console.log('DELETE CLIENTE', id);
     const confirmacion = confirm ('¿Deseas eliminar el registro?');
     if (confirmacion) {
-      this.borregasService.deleteBorrega(id);
+      this.clientesService.deleteCliente(id);
     }
   }
 
-  onPreUpdateBorrega(borrega: Borregas) {
-    this.borregasService.selectBorrega = Object.assign({}, borrega);
+  onPreUpdateCliente(cliente: Clientes) {
+    this.clientesService.selectCliente = Object.assign({}, cliente);
   }
 }
