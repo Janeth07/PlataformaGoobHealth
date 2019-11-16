@@ -5,11 +5,11 @@ import {NgForm} from '@angular/forms';
 import {CorralesService} from '../services/corrales.service';
 
 @Component({
-  selector: 'app-ganado',
-  templateUrl: './ganado.component.html',
-  styleUrls: ['./ganado.component.scss']
+  selector: 'app-clientes',
+  templateUrl: './clientes.component.html',
+  styleUrls: ['./clientes.component.scss']
 })
-export class GanadoComponent implements OnInit {
+export class ClientesComponent implements OnInit {
   public loading: boolean;
 
   constructor(public clientesService: ClientesService, public corralesService: CorralesService) {

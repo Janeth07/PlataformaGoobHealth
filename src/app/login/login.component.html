@@ -4,7 +4,7 @@
       <div class="offset-md-4 col-md-4 col-sm-4 col-xs-12 card card-stats">
         <form class=" text-center mt-3 mb-5" #formLogin="ngForm" (submit)="Onlogin()">
           <div>
-            <img src="../../assets/img/logo.jpg" width="30%" />
+            <img src="./../../../assets/img/logoIcinet.png" width="30%" />
           </div>
           <h3>Iniciar Sesión</h3>
 
@@ -20,7 +20,7 @@
               placeholder="Teclea tu contraseña" [(ngModel)]="password" />
           </div>
 
-          <button class="btn btn-danger btn-sm btn-block" type="submit">
+          <button class="btn btn-info btn-sm btn-block" type="submit">
             Ingresar
           </button>
 
@@ -31,13 +31,13 @@
             <label> <input type="checkbox" />Mantener sesión Iniciada </label>
           </div>
 
-          <a routerLink="restauracion"><u class="text-danger">¿Olvidaste la contraseña?</u></a><br />
+          <a routerLink="restauracion"><u class="text-info">¿Olvidaste la contraseña?</u></a><br />
           <p>
             ¿No tienes una cuenta?
-            <a routerLink="#"><u class="text-danger"> !Contactanos!</u></a>
+            <a routerLink="#"><u class="text-info"> !Contactanos!</u></a>
           </p>
 
-          <div class="spinner-border text-danger" role="status">
+          <div class="spinner-border text-info" role="status">
             <span class="sr-only">Loading...</span>
           </div>
         </form>

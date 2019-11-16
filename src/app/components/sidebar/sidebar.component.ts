@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthGuard} from '../../guards/auth.guard';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -6,23 +7,24 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+   
 }
 export const ROUTES: RouteInfo[] = [
 
-    { path: '/dashboard', title: 'Panel',  icon: 'pie_chart', class: '' },
-    { path: '/ganaderos', title: 'Ganadero',  icon:'person', class: '' },
-    { path: '/analisis', title: 'Analisis',  icon:'insert_chart_outlined', class: '' },
-    { path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
+    //{ path: '/dashboard', title: 'Panel',  icon: 'pie_chart', class: '' },
+   { path: '/ganaderos', title: 'Ganadero',  icon:'person', class: '' },
+   // { path: '/analisis', title: 'Analisis',  icon:'insert_chart_outlined', class: '' },
+    //{ path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
     { path: '/market', title: 'Market',  icon:'shopping_cart', class: '' },
-    { path: '/administracion', title: 'Administracion',  icon:'event', class: '' }
+    //{ path: '/administracion', title: 'Administracion',  icon:'event', class: '' }
 ];
 export const ROUTES_GAN: RouteInfo[] = [
 
-    { path: '/dashboard_ganadero', title: 'Cobradores',  icon: 'person', class: '' },
-    { path: '/ganado', title: 'Clientes',  icon: 'person', class: '' },    
+    { path: '/cobradores', title: 'Cobradores',  icon: 'person', class: ''},
+    { path: '/clientes', title: 'Clientes',  icon: 'person', class: ''},    
     //{ path: '/dietas', title: 'Reportes',  icon:'description', class: '' },
    // { path: '/corrales', title: 'Corrales',  icon:'view_module', class: '' },
-    { path: '/registrar', title: 'Reportes',  icon:'description', class: '' },    
+    { path: '/reportes', title: 'Reportes',  icon:'description', class: ''},    
     //{ path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
     //{ path: '/market', title: 'Market',  icon:'shopping_cart', class: '' },
     //{ path: '/administracion', title: 'Administracion',  icon:'event', class: '' }

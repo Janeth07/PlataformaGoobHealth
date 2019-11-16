@@ -15,9 +15,9 @@ import { ComponentsModule } from './components/components.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
-import { PanelComponent } from './panel/panel.component';
+//import { PanelComponent } from './panel/panel.component';
 import {GanaderosComponent} from './ganaderos/ganaderos.component';
-import { RegistrarComponent } from './registrar/registrar.component';
+import { ReportesComponent } from './reportes/reportes.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
 

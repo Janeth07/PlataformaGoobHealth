@@ -38,6 +38,13 @@ export class ClientesService {
      this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
     this.clienteDoc.update(cliente);
    }
+   
+   updateStatus(cliente:Clientes,newStatus:string): void{
+    let id=cliente.id;
+    cliente.estatus=newStatus
+    this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
+    this.clienteDoc.update(cliente);
+  }
 
    deleteCliente(id:string): void{
      this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);

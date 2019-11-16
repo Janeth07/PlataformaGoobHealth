@@ -39,7 +39,7 @@
             height: 15px;
             width: 15px;
             border-radius: 100%;
-            background-color: $brand-danger;  //background-color: $mdb-radio-color-on;
+            background-color: $brand-info;  //background-color: $mdb-radio-color-on;
             @include transform-scale3d(unquote('0,0,0'));
 
 
@@ -64,7 +64,7 @@
         overflow: hidden;
 
         &:checked {
-            @include radio-color($brand-danger, 1);  // @include radio-color($mdb-radio-color-on, 1); 
+            @include radio-color($brand-info, 1);  // @include radio-color($mdb-radio-color-on, 1); 
         }
         &:checked ~ .circle .check {
             @include transform-scale3d(unquote('0.65, 0.65, 1')); //@include transform-scale3d(unquote('0.65, 0.65, 1'));
