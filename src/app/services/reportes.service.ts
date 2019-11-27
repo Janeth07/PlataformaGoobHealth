@@ -7,15 +7,15 @@ import {Clientes} from '../interfaces/clientes.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class ClientesService {
+export class ReportesService {
 
-  constructor(private afs:AngularFirestore) {
-    this.clientesCollection=afs.collection<Clientes>('clientes');
+  constructor(private afs:AngularFirestore) { 
+    this.clientesCollection=afs.collection<Clientes>('clientes',ref=>{
+      return ref.where('estatus','==','Pagado')
+    });
     this.clientes=this.clientesCollection.valueChanges();
-    
-   }
-
-   private clientesCollection: AngularFirestoreCollection<Clientes>;
+  }
+  private clientesCollection: AngularFirestoreCollection<Clientes>;
    private clientes:Observable<Clientes[]>;
    public selectCliente:Clientes={
      id:null
@@ -51,15 +51,5 @@ export class ClientesService {
      this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
      this.clienteDoc.delete();
 
-   }
-
-   addCliente(cliente:any){
-     cliente.fecha_baja = new Date(cliente.fecha_baja).getTime();
-     cliente.fecha_alta = new Date(cliente.fecha_alta).getTime();
-     cliente.fecha_nac = new Date(cliente.fecha_nac).getTime();
-     
-     
-
-return this.clientesCollection.add(cliente);
    }
 }

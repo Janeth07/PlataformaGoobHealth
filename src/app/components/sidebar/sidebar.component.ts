@@ -12,23 +12,17 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
 
     //{ path: '/dashboard', title: 'Panel',  icon: 'pie_chart', class: '' },
-   { path: '/ganaderos', title: 'Ganadero',  icon:'person', class: '' },
+   //{ path: '/ganaderos', title: 'Ganadero',  icon:'person', class: '' },
    // { path: '/analisis', title: 'Analisis',  icon:'insert_chart_outlined', class: '' },
-    //{ path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
-    { path: '/market', title: 'Market',  icon:'shopping_cart', class: '' },
-    //{ path: '/administracion', title: 'Administracion',  icon:'event', class: '' }
-];
-export const ROUTES_GAN: RouteInfo[] = [
-
-    { path: '/cobradores', title: 'Cobradores',  icon: 'person', class: ''},
-    { path: '/clientes', title: 'Clientes',  icon: 'person', class: ''},    
-    //{ path: '/dietas', title: 'Reportes',  icon:'description', class: '' },
-   // { path: '/corrales', title: 'Corrales',  icon:'view_module', class: '' },
-    { path: '/reportes', title: 'Reportes',  icon:'description', class: ''},    
     //{ path: '/reportes', title: 'Reportes',  icon:'assignment', class: '' },
     //{ path: '/market', title: 'Market',  icon:'shopping_cart', class: '' },
     //{ path: '/administracion', title: 'Administracion',  icon:'event', class: '' }
 ];
+export const ROUTES_GAN: RouteInfo[] = [
+
+    { path: '/cobradores', title: 'Cobradores',  icon: 'people_alt', class: ''},
+    { path: '/clientes', title: 'Clientes',  icon: 'people_alt', class: ''},    
+    { path: '/reportes', title: 'Reportes',  icon:'description', class: ''}, ]   
 
 @Component({
   selector: 'app-sidebar',

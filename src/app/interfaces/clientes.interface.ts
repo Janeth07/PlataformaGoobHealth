@@ -1,3 +1,5 @@
+import { Estatus } from "./estatus.interface";
+
 export interface Clientes{
     id?: string,
     nombre?: string,
@@ -10,6 +12,7 @@ export interface Clientes{
     fecha_inicio?:string,
     fecha_pago?: string,
     cantidad?:number,
-    estatus?: string,
+    estatus?:string,
+   //estatus?: Estatus[],
     mac?:string
   }

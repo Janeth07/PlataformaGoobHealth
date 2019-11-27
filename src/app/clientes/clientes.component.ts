@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {ClientesService} from '../services/clientes.service';
 import {Clientes} from '../interfaces/clientes.interface';
 import {NgForm} from '@angular/forms';
-import {CorralesService} from '../services/corrales.service';
 
 @Component({
   selector: 'app-clientes',
@@ -12,22 +11,19 @@ import {CorralesService} from '../services/corrales.service';
 export class ClientesComponent implements OnInit {
   public loading: boolean;
 
-  constructor(public clientesService: ClientesService, public corralesService: CorralesService) {
+  constructor(public clientesService: ClientesService) {
     this.loading = true;
+   
   }
   public clientes = [] ;
   public cliente = '';
-  public corrales = [];
+
 
   ngOnInit() {
     this.clientesService.getClientes().subscribe(clientes => {
       console.log('CLIENTES', clientes);
       this.clientes = clientes;
       this.loading = false;
-     })
-     this.corralesService.getCorrales().subscribe(corrales => {
-      console.log('CORRALES', corrales);
-      this.corrales = corrales;
      })
   }
 

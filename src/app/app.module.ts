@@ -14,19 +14,11 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-
-//import { PanelComponent } from './panel/panel.component';
-import {GanaderosComponent} from './ganaderos/ganaderos.component';
 import { ReportesComponent } from './reportes/reportes.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-
-import { CorralesComponent } from './corrales/corralescomponent';
-
 import {AgmCoreModule} from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
-import { RestauracionComponent } from './restauracion/restauracion.component';
+
 
 
 @NgModule({
@@ -51,8 +43,6 @@ BrowserAnimationsModule,
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    RestauracionComponent
-
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

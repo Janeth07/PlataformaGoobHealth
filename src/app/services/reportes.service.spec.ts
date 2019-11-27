@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { RegistrarService } from './registrar.service';
+import { ReportesService } from './reportes.service';
 
 describe('ReportesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RegistrarService]
+      providers: [ReportesService]
     });
   });
 
-  it('should be created', inject([RegistrarService], (service: RegistrarService) => {
+  it('should be created', inject([ReportesService], (service: ReportesService) => {
     expect(service).toBeTruthy();
   }));
 });
