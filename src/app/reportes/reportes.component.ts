@@ -6,6 +6,7 @@ import { getLocaleTimeFormat } from '@angular/common';
 import { element } from '@angular/core/src/render3';
 import { AuthService } from 'app/auth.service';
 import { ReportesService } from '../services/reportes.service';
+//import { RegistrosService } from 'app/services/registros.service';
 
 @Component({
   selector: 'app-reportes',
@@ -16,7 +17,9 @@ export class ReportesComponent implements OnInit {
 public loading: boolean;
 buscar:string;
 
-  constructor(public clientesService: ClientesService, public reportesService:ReportesService) { 
+  constructor(public clientesService: ClientesService,
+   // public regService: RegistrosService,
+     public reportesService:ReportesService) { 
     this.loading = true;
   }
   public clientes = [];
@@ -28,17 +31,10 @@ buscar:string;
   ngOnInit() { 
     this.clientesService.getClientes().subscribe(clientes => {
       console.log('CLIENTES', clientes);
-      this.clientes = clientes;
+      this.clientes = clientes;  
       this.loading = false;
-      //Calculamos el TOTAL 
-     /*this.total = this.clientes.reduce((
-      acc,
-      obj, 
-    ) => acc + (obj.cantidad),
-    0);
-    console.log("Total: ", this.total);*/
-     })
-
+     });
+     
  }
  todos(){
   this.clientesService.getClientes().subscribe(clientes => {
@@ -48,9 +44,13 @@ buscar:string;
    })
  }
 
+ updateStatusTodos(): void{
+  this.clientesService.updateStatusTodos();
+ }
+
  Pagado(){
   this.reportesService.getClientes().subscribe(clientes => {
-    console.log('CLIENTES', clientes);
+    //console.log('CLIENTES', clientes);
     this.clientes = clientes;
     this.loading = false;
     //Calculamos el TOTAL 
@@ -59,11 +59,9 @@ buscar:string;
     obj, 
   ) => acc + (obj.cantidad),
   0);
-  console.log("Total: ", this.total);
+  //console.log("Total: ", this.total);
    })
  }
-
-
   onPreUpdateCliente(cliente: Clientes) {
     this.clientesService.selectCliente = Object.assign({}, cliente);
   }
@@ -72,12 +70,13 @@ buscar:string;
     var estado = cliente.estatus == "Pagado" ? "Sin pagar" : "Pagado";
     const confirmacion = confirm ('¿Deseas cambiar el estatus?');
     if (confirmacion) {
-    this.clientesService.updateStatus(cliente,estado);
-    
-      
+    this.clientesService.updateStatus(cliente,estado);    
     }
     }
 
+   cambiarEstatus(){
+    
+   }
     consultar(){
        if(this.buscar == ""){
          this.buscando=false;

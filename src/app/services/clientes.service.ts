@@ -39,6 +39,14 @@ export class ClientesService {
      this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
     this.clienteDoc.update(cliente);
    }
+   updateStatusTodos(): void{
+     this.getClientes().subscribe(items =>{
+        items.forEach(cliente =>{
+          this.afs.doc("clientes/"+cliente.id).update({estatus:"Sin pagar"});
+        });
+     }); 
+  }
+
    
    updateStatus(cliente:Clientes,newStatus:string): void{
     let id=cliente.id;
@@ -57,9 +65,6 @@ export class ClientesService {
      cliente.fecha_baja = new Date(cliente.fecha_baja).getTime();
      cliente.fecha_alta = new Date(cliente.fecha_alta).getTime();
      cliente.fecha_nac = new Date(cliente.fecha_nac).getTime();
-     
-     
-
-return this.clientesCollection.add(cliente);
+     return this.clientesCollection.add(cliente);
    }
 }
