@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <i class="material-icons">equalizer</i>
+            <a class="navbar-brand">Estadisticas Dengue e Influenza</a>
+        </div>
+        <button mat-raised-button class="navbar-toggler" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="navbar-wrapper ml-auto">
+          <a class="navbar-brand font-weight-bold" href="#"><img src="../../assets/img/icons8_Shutdown_52px_3.png" width="20px">Cerrar Sesión</a>
+      </div>
+    </div>
+</nav>
+
+
+  
+  
+  
+<div class="main-content">
+    <div class="container-fluid">
+       <div class="card">
+          <div class="card-header card-header-info">
+              <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                    <h3>
+                      <b> ESTADISTICAS DENGUE E INFLUENZA</b>
+                    </h3>
+                  </div>
+              </div>
+          </div>
+          <div class="card-body ">
+              <div class="tab-content text-center">
+                <table class="table">
+                    <thead class=" text-info">
+                        <th>
+                           Estado
+                        </th>
+                        <th>
+                            <button class="btn btn-info btn-round" data-toggle="modal" (click)="Suma()">
+                             DENGUE
+                            </button>
+                            
+                        </th>
+                        <th >
+                            <button class="btn btn-info btn-round" data-toggle="modal" (click)="Suma2()">
+                                INFLUENZA
+                               </button>
+                        </th>
+                    </thead>
+                    <Tbody>
+                      <Td>
+                        San Luis
+                      </Td>
+                      <Td>
+                          {{total}}
+                        </Td>
+                        <Td>
+                            {{total2}}
+                          </Td>
+                    </Tbody>
+                    
+                </table>
+              </div>
+           </div>
+       </div>
+      
+        </div>
+      </div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore'
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Clientes} from '../interfaces/clientes.interface';
+import {Influenzas} from '../interfaces/influenza.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,46 +10,41 @@ import {Clientes} from '../interfaces/clientes.interface';
 export class ReportesService {
 
   constructor(private afs:AngularFirestore) { 
-    this.clientesCollection=afs.collection<Clientes>('clientes',ref=>{
-      return ref.where('estatus','==','Pagado')
-    });
-    this.clientes=this.clientesCollection.valueChanges();
+    this.influenzasCollection=afs.collection<Influenzas>('influenzas');
+    this.influenzas=this.influenzasCollection.valueChanges();
   }
-  private clientesCollection: AngularFirestoreCollection<Clientes>;
-   private clientes:Observable<Clientes[]>;
-   public selectCliente:Clientes={
+  private influenzasCollection: AngularFirestoreCollection<Influenzas>;
+   private influenzas:Observable<Influenzas[]>;
+   public selectInfluenza:Influenzas={
      id:null
-   };
-   private clienteDoc:AngularFirestoreDocument<Clientes>;
-   private cliente:Observable<Clientes>;
+};
+private influenzasDoc:AngularFirestoreDocument<Influenzas>;
+private Influenzas:Observable<Influenzas>;
 
-   getClientes(){
-     return this.clientes=this.clientesCollection.snapshotChanges()
+   getInfluenzas(){
+     return this.influenzas=this.influenzasCollection.snapshotChanges()
      .pipe(map(changes => {
        return changes.map(action=>{
-         const data=action.payload.doc.data() as Clientes;
+         const data=action.payload.doc.data() as Influenzas;
          data.id=action.payload.doc.id;
          return data;
        });
      }));
    }
 
-   updateClientes(cliente:Clientes): void{
-     let id=cliente.id;
-     this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
-    this.clienteDoc.update(cliente);
+   updateInfluenzas(influenzas:Influenzas): void{
+     let id=influenzas.id;
+     this.influenzasDoc=this.afs.doc<Influenzas>(`influenzas/${id}`);
+    this.influenzasDoc.update(influenzas);
    }
-   
-   updateStatus(cliente:Clientes,newStatus:string): void{
-    let id=cliente.id;
-    cliente.estatus=newStatus
-    this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
-    this.clienteDoc.update(cliente);
-  }
 
-   deleteCliente(id:string): void{
-     this.clienteDoc=this.afs.doc<Clientes>(`clientes/${id}`);
-     this.clienteDoc.delete();
+   deleteInfluenzas(id:string): void{
+     this.influenzasDoc=this.afs.doc<Influenzas>(`influenzas/${id}`);
+     this.influenzasDoc.delete();
 
+   }
+
+   addInfluenza(influenzas:any){
+return this.influenzasCollection.add(influenzas);
    }
 }

@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ReportesComponent } from './reportes/reportes.component';
+import { PacientesComponent } from './pacientes/pacientes.component';
 import {AgmCoreModule} from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';

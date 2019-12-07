@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <i class="material-icons">people_alt</i>
+            <a class="navbar-brand">Pacientes</a>
+        </div>
+        <button mat-raised-button class="navbar-toggler" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="navbar-wrapper ml-auto">
+            <a class="navbar-brand font-weight-bold" href="#"><img src="../../assets/img/icons8_Shutdown_52px_3.png" width="20px">Cerrar Sesión</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-info">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#dengue" role="tab" aria-controls="pills-home" aria-selected="true">Dengue</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#influenza" role="tab" aria-controls="pills-profile" aria-selected="false">Influenza</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content text-center">
+            
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="dengue" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <div class="row">     
+                  <div class="card-body  col-md-12">
+                                <div *ngIf="loading" class="text-center my-6">
+                                        <img src="../../assets/img/loadingazul.gif" width="64px" />
+                                      </div>     
+                                      <div class="card text-white bg-secondary" style="width: 15rem;" *ngFor="let dengue of dengues">
+                                            <img src="../../assets/img/dengue.jpeg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                              <h4 class="card-title"><b>Dengue: {{dengue.etapa}}</b></h4>
+                                              <p class="card-text"><b>Sintomas: {{dengue.sintomas}}</b></p>
+                                              <p class="card-text"><b>Fecha: {{dengue.fecha}}</b></p>
+                                              <p class="card-text"><b>Prueba: {{dengue.pruebas}}</b></p>
+                                            </div>
+                                          </div>
+                                        </div>   
+                                      </div>
+                </div>
+                <div class="tab-pane fade" id="influenza" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="card-body col-md-12">
+                                <div *ngIf="loading" class="text-center my-6">
+                                        <img src="../../assets/img/loadingazul.gif" width="64px" />
+                                      </div>     
+                                      <div class="card text-white bg-secondary" style="width: 18rem;" *ngFor="let influenza of influenzas">
+                                            <img src="../../assets/img/influenza.jpg" class="card-img-top" width="64px">
+                                            <div class="card-body">
+                                              <h4 class="card-title"><b>Influenza: {{influenza.etapa}}</b></h4>
+                                              <p class="card-text"><b>Sintomas: {{influenza.sintomas}}</b></p>
+                                              <p class="card-text"><b>Fecha: {{influenza.fecha}}</b></p>
+                                              <p class="card-text"><b>Prueba: {{influenza.pruebas}}</b></p>
+                                            </div>
+                                          </div>
+                                        </div>   
+                </div>
+              </div>
+
+                </div>
+               </div>     
+                      </div>
+
+
+                      
+                     
+                     
+
+              
+
+         
+        

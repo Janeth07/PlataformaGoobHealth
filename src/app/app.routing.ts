@@ -6,9 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {  AuthGuard} from './guards/auth.guard';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
-import { ReportesComponent } from './reportes/reportes.component';
-import { ClientesComponent } from './clientes/clientes.component';
-import { CobradoresComponent } from './cobradores/cobradores.component';
+import { PacientesComponent } from './pacientes/pacientes.component';
+import { CasosComponent } from './casos/casos.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 const routes: Routes =[
   {

@@ -43,7 +43,7 @@ emailSignUp() {
 onlogininGoogle(): void {
   this.authService.loginGoogleUser().then((res) => {
     console.log('resUser', res);
-    this.router.navigate(['cobradores']);
+    this.router.navigate(['estadisticas']);
   }).catch(err => console.log('err', err));
 }
 Onlogin(): void {
@@ -51,7 +51,7 @@ Onlogin(): void {
   console.log('password', this.password);
    this.loading = true;
 this.authService.loginEmailUser(this.email, this.password).then((res) => {
- this.router.navigate(['cobradores']);
+ this.router.navigate(['estadisticas']);
 // tslint:disable-next-line: comment-format
 //}).catch(err=> console.log('err',err.message));
 }).catch (err => {

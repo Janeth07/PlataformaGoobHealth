@@ -20,9 +20,9 @@ export const ROUTES: RouteInfo[] = [
 ];
 export const ROUTES_GAN: RouteInfo[] = [
 
-    { path: '/cobradores', title: 'Cobradores',  icon: 'people_alt', class: ''},
-    { path: '/clientes', title: 'Clientes',  icon: 'people_alt', class: ''},    
-    { path: '/reportes', title: 'Reportes',  icon:'description', class: ''}, ]   
+    { path: '/estadisticas', title: 'Estadisticas',  icon: 'equalizer', class: ''},
+    { path: '/casos', title: 'Nuevos Casos Clinicos',  icon: 'description', class: ''},    
+    { path: '/pacientes', title: 'Pacientes',  icon:'people_alt', class: ''}, ]   
 
 @Component({
   selector: 'app-sidebar',

@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import {  ReportesComponent} from '../../reportes/reportes.component';
-import { CobradoresComponent } from 'app/cobradores/cobradores.component';
-import { ClientesComponent } from 'app/clientes/clientes.component';
+import {  PacientesComponent} from '../../pacientes/pacientes.component';
+import { EstadisticasComponent } from 'app/estadisticas/estadisticas.component';
+import { CasosComponent } from 'app/casos/casos.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'cobradores',      component: CobradoresComponent },
-    { path: 'clientes',   component: ClientesComponent },
-    { path: 'reportes',     component:  ReportesComponent},
+    { path: 'estadisticas',      component: EstadisticasComponent },
+    { path: 'casos',   component: CasosComponent },
+    { path: 'pacientes',     component:  PacientesComponent},
 ]

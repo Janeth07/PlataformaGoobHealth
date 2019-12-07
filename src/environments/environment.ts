@@ -6,14 +6,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDq5axgoVEfHWp9uE3nWzQR0FnGMgSOTm4",
-  authDomain: "internet-82a53.firebaseapp.com",
-  databaseURL: "https://internet-82a53.firebaseio.com",
-  projectId: "internet-82a53",
-  storageBucket: "internet-82a53.appspot.com",
-  messagingSenderId: "241618829728",
-  appId: "1:241618829728:web:5e57f5691db6151a4524c5",
-  measurementId: "G-L029JY8143"
+    apiKey: "AIzaSyD4TXK9nnfP8GhmSq_G8it82VFGlOpNorg",
+    authDomain: "diagnostic-medic.firebaseapp.com",
+    databaseURL: "https://diagnostic-medic.firebaseio.com",
+    projectId: "diagnostic-medic",
+    storageBucket: "diagnostic-medic.appspot.com",
+    messagingSenderId: "588349351255",
+    appId: "1:588349351255:web:248b56e727c5366a528a12",
+    measurementId: "G-0Q48WJPHBT"
   }
 
 };

@@ -1,0 +1,217 @@
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <i class="material-icons">description</i>
+      <a class="navbar-brand">Nuevos Casos Clínicos</a>
+    </div>
+    <button mat-raised-button class="navbar-toggler" type="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>    
+    <div class="navbar-wrapper ml-auto">
+      <a class="navbar-brand" href="#"><img src="../../assets/img/icons8_Shutdown_52px_3.png" width="20px">Cerrar Sesión</a>
+  </div>
+  </div>
+</nav>
+
+<div class="main-content">
+  <div class="container-fluid">
+    <button class="btn btn-info btn-round float-right ml-2" data-toggle="modal" 
+    data-target="#exampleModal">
+    <i class="material-icons">add_circle</i> Registrar Caso de Dengue
+    </button>
+    <button class="btn btn-info btn-round float-right ml-2" data-toggle="modal" 
+    data-target="#exampleModal2">
+    <i class="material-icons">add_circle</i> Registrar Caso de Influenza
+    </button>
+    <br>
+    <br>
+    <br>
+ 
+    <div class="row">
+<div class="col"></div>
+<div class="col"> <img src="../../assets/img/influenza2.jpeg" class="text-center" width=""></div>
+<div class="col"></div>
+    </div>
+   
+
+   
+  
+      <!-- Modal -->
+      <div class="card">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> 
+              Registrar Nuevo caso  de Dengue
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #formDengue="ngForm" (ngSubmit)="saveDengue(formDengue)">
+              <div class="form-row">
+                <div type="text" name="id" [(ngModel)]="this.casosService.selectDengue.id"></div>
+              
+                <div class="col">
+                    <p>Nombre:
+                  <input type="text" class="form-control" placeholder="Nombre" name="nombre"
+                    [(ngModel)]="this.casosService.selectDengue.nombre">
+                  </p>
+                  <div>
+                    <p>Fecha:
+                    <input type="date" class="form-control" placeholder="Fecha de Pago" name="fecha"
+                      [(ngModel)]="this.casosService.selectDengue.fecha"></p>
+                    </div>
+                    <p>Tipo:
+                      <input type="text" class="form-control" placeholder="Etapa" name="etapa"
+                        [(ngModel)]="this.casosService.selectDengue.etapa">
+                      </p>
+                      <div class="row">
+                        <div class="col ml-auto my-2 ">
+                          <p class="text-right"><span class="text-muted">Municipio:</span></p>
+                          </div>
+                          <div class="col">
+                        <label class="my-1" for="inlineFormCustomSelectPref">
+                        <select class="custom-select mr-sm-2 " id="inlineFormCustomSelect" name="municipio" [(ngModel)]="this.casosService.selectDengue.municipio">
+                            <option value="Ahualulco">Ahualulco</option>
+                            <option value="Mexquitic">Mexquitic</option>
+                            <option value="Porvenir">Porvenir</option>
+                            <option value="Terrazas">Terrazas</option>
+                            <option value="Alaquines">Alaquines</option>
+                          </select>
+                          </label>
+                        </div>
+                      </div>
+                  
+                 
+</div>
+
+<div class="col">
+                  <p>Apellido:
+                      <input type="text" class="form-control" placeholder="Apellido" name="apellidos"
+                        [(ngModel)]="this.casosService.selectDengue.apellidos">
+                        </p>
+                        <p>Prueba:
+                            <input type="text" class="form-control" placeholder="Prueba" name="pruebas"
+                              [(ngModel)]="this.casosService.selectDengue.pruebas">
+                              </p>
+                              <p>Sintomas:
+                                <input type="text" class="form-control" placeholder="Sintomas" name="sintomas"
+                                  [(ngModel)]="this.casosService.selectDengue.sintomas">
+                                  </p>
+                      <div>
+                        <p>Cantidad:
+                        <input type="number" class="form-control" placeholder="Ingresar cantidad" name="cantidad"
+                          [(ngModel)]="this.casosService.selectDengue.cantidad"></p>
+                        </div>
+                      
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" type="submit" class="btn btn-info btn-round">
+                  <i class="material-icons">
+                    check</i> Guardar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="card">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" 
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> 
+              Registrar Nuevo caso  de Influenza
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #formInfluenza="ngForm" (ngSubmit)="saveInfluenza(formInfluenza)">
+              <div class="form-row">
+                <div type="text" name="id" [(ngModel)]="this.reportesService.selectInfluenza.id"></div>
+              
+                <div class="col">
+                    <p>Nombre:
+                  <input type="text" class="form-control" placeholder="Nombre" name="nombre"
+                    [(ngModel)]="this.reportesService.selectInfluenza.nombre">
+                  </p>
+                  <div>
+                    <p>Fecha:
+                    <input type="date" class="form-control" placeholder="Fecha de Pago" name="fecha"
+                      [(ngModel)]="this.reportesService.selectInfluenza.fecha"></p>
+                    </div>
+                    <p>Tipo:
+                      <input type="text" class="form-control" placeholder="Etapa" name="etapa"
+                        [(ngModel)]="this.reportesService.selectInfluenza.etapa">
+                      </p>
+                      <div class="row">
+                        <div class="col ml-auto my-2 ">
+                          <p class="text-right"><span class="text-muted">Municipio:</span></p>
+                          </div>
+                          <div class="col">
+                        <label class="my-1" for="inlineFormCustomSelectPref">
+                        <select class="custom-select mr-sm-2 " id="inlineFormCustomSelect" name="municipio" [(ngModel)]="this.reportesService.selectInfluenza.municipio">
+                            <option value="Ahualulco">Ahualulco</option>
+                            <option value="Mexquitic">Mexquitic</option>
+                            <option value="Porvenir">Porvenir</option>
+                            <option value="Terrazas">Terrazas</option>
+                            <option value="Alaquines">Alaquines</option>
+                          </select>
+                          </label>
+                        </div>
+                      </div>
+                  
+                 
+</div>
+
+<div class="col">
+                  <p>Apellido:
+                      <input type="text" class="form-control" placeholder="Apellido" name="apellidos"
+                        [(ngModel)]="this.reportesService.selectInfluenza.apellidos">
+                        </p>
+                        <p>Prueba:
+                            <input type="text" class="form-control" placeholder="Prueba" name="pruebas"
+                              [(ngModel)]="this.reportesService.selectInfluenza.pruebas">
+                              </p>
+                              <p>Sintomas:
+                                <input type="text" class="form-control" placeholder="Sintomas" name="sintomas"
+                                  [(ngModel)]="this.reportesService.selectInfluenza.sintomas">
+                                  </p>
+                      <div>
+                        <p>Cantidad:
+                        <input type="number" class="form-control" placeholder="Ingresar cantidad" name="cantidad"
+                          [(ngModel)]="this.reportesService.selectInfluenza.cantidad"></p>
+                        </div>
+                      
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" type="submit" class="btn btn-info btn-round">
+                  <i class="material-icons">
+                    check</i> Guardar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+   
